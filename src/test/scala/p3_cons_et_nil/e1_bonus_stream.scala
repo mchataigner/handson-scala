@@ -8,11 +8,11 @@ class e1_bonus_stream extends HandsOnSuite {
 
     def map[B](fonction:A => B):Stream[B]
 
-    def flatMap[B](fonction:A => B):Stream[B]
+    def flatMap[B](fonction:A => Stream[B]):Stream[B]
 
     def filter(fonction:A => Boolean):Stream[A]
 
-    final def union[B >: A](Stream:Stream[B]):Stream[B]= {
+    final def union[B >: A](stream:Stream[B]):Stream[B]= {
       this match {
         case Cons(head,tail) => Cons(head, ???)
         case EmptyStream => ???
@@ -79,7 +79,7 @@ class e1_bonus_stream extends HandsOnSuite {
     /**
      * l'implémentation de flatMap a besoin d'union
      */
-    def flatMap[B](fonction:A => B):Stream[B] = ???
+    def flatMap[B](fonction:A => Stream[B]):Stream[B] = ???
 
     override def filter(fonction:A => Boolean):Stream[A] = ???
 
@@ -107,7 +107,7 @@ class e1_bonus_stream extends HandsOnSuite {
 
     def map[B](fonction:A => B):Stream[B]  = ???
 
-    def flatMap[B](fonction:A => B):Stream[B] = EmptyStream
+    def flatMap[B](fonction:A => Stream[B]):Stream[B] = EmptyStream
 
     def filter(fonction:A => Boolean):Stream[A] = ???
 
